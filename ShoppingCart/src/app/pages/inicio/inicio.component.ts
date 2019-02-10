@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
+  public estadoMenu:boolean = true;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  accionMenu(){
+
+    if(this.estadoMenu)
+    this.estadoMenu=false;
+    else
+    this.estadoMenu=true;
+  }
 }

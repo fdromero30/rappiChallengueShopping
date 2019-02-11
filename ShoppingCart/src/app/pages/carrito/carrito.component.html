@@ -1,3 +1,73 @@
-<p>
-  carrito works!
-</p>
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div class="row contenedorFiltros">
+        prueba
+    </div>
+    <div class="row contenedorProductos">
+        <div class="list-items">
+            <div class="list-item" *ngFor="let item of productos ">
+                <div class="card">
+                    <div class="col-12 tituloItem">
+                        <label class="card-title">{{item.name |uppercase}}</label>
+
+                    </div>
+                    <img class="card-img-top" src="../../../assets/icono.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="col-12">
+
+
+                            <div class="col-12">
+
+                                <label class="card-text">{{item.price}}</label>
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+                            <a href="#" class="btn btn-primary btn-block">Anadir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-lg-3 col-md-3 col=sm-12 col-xs-12 contenedorResumenCarrito">
+    <div class="tituloCarrito">
+        <label class="center"><span class="glyphicon glyphicon-shopping-cart"></span>CARRITO DE COMPRA</label>
+    </div>
+    <div class="itemsCarrito">
+        <div class="items">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor='let item of listaItemsCarrito'>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <label>
+                            {{item.name}}
+                        </label>
+                        <label>
+                            {{item.price}}
+                        </label>
+                        <label>
+                            {{item.quantity}}
+                        </label>
+                    </div>
+                    <div class="col-1" style="position:float">
+                        <button class="btn btn-outline-danger ">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <hr>
+        <div class="col-12">
+            <label>Total: {{Total}}$</label>
+            <br>
+            <button class="btn btn-danger btn-lg btn-block">Finalizar Compra</button>
+        </div>
+    </div>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { DataService } from '../../providers/data-provider'
+import { CategoriaModel } from 'src/app/models/categoria.model';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  @Input() estadoMenu:any
+  @Input() estadoMenu: any
   private _opened: boolean = true;
   private _modeNum: number = 0;
   private _positionNum: number = 0;
@@ -24,6 +25,41 @@ export class MenuComponent implements OnInit {
 
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
+  public categorias: CategoriaModel;
+  public arrayCategorias: any=[];
+
+
+  constructor(public service: DataService) {
+
+    this.obtenerCategorias();
+    console.log('constructor menu');
+  }
+
+
+  obtenerCategorias() {
+   this.service.getCategoriasJson().subscribe((data: any) => {
+
+    let categories =[];
+    categories= data.categories;
+
+    categories.forEach(element => {
+
+      this.categorias=element;
+      this.arrayCategorias.push(this.categorias);
+    });
+
+    console.log("menu",this.arrayCategorias);
+
+
+    });
+  }
+
+
+
+
+  openDetalle(detalle:any){
+    console.log(detalle);
+  }
 
   private _toggleOpened(): void {
     this._opened = !this._opened;
@@ -109,8 +145,10 @@ export class MenuComponent implements OnInit {
     console.info('Backdrop clicked');
   }
   ngOnInit() {
+
+
+
   }
 
- 
- 
+
 }

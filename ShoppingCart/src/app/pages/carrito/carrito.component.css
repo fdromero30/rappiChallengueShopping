@@ -1,0 +1,82 @@
+.contenedorResumenCarrito {
+    background-color: #f8f9fa;
+    height: 100%;
+    margin: 0%;
+    padding: unset !important;
+    /* border-left: #dee2e6 solid; */
+}
+
+.contenedorProductos {
+    max-height: 700px;
+    overflow-y: scroll;
+    padding: unset;
+
+}
+
+.tituloCarrito {
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.itemsCarrito {
+    font-size: 15px;
+}
+
+.items {
+    max-height: 700px;
+    overflow-y: scroll;
+}
+
+.list-items {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: flex-end;
+}
+
+.list-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.card {
+    width: 19rem;
+}
+.tituloItem{
+    text-align: center;
+    margin-top: 5px;
+}
+.contenedorFiltros{
+    height: 45px;
+    width: 100%;
+}
+
+@media(max-width:320px) {
+    .card {
+        width: 13rem;
+    }
+    .card-title {
+        font-size: 10px;
+    }
+    .card-text {
+        font-size: 10px;
+    }
+    .tituloItem{font-size: 10px}
+}
+
+@media(max-width:480px)and(min-width:381px) {
+    .card {
+        width: 13rem;
+    }
+    .card-title {
+        font-size: 10px;
+    }
+    .card-text {
+        font-size: 10px;
+    }
+    .tituloItem{font-size: 10px}
+}

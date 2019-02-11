@@ -12,6 +12,9 @@
   width: 100%;
   height: 100%;
 }
+.contenedorCarrito{
+  padding: unset;
+}
 
 .contenedor-boton {
   margin-top: 10px;
@@ -51,6 +54,7 @@
     padding: unset !important;
     width: 300px;
   }
+
 }
 
 @media(max-width:760px)and (min-width: 481px) {
@@ -63,6 +67,7 @@
   }
   .contenedorCarrito{
     position: absolute;
+    padding:unset;
   }
   .contenedorMenu {
     padding: unset !important;

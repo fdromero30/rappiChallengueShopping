@@ -10,7 +10,7 @@
     max-height: 700px;
     overflow-y: scroll;
     padding: unset;
-
+    
 }
 
 .tituloCarrito {
@@ -28,7 +28,9 @@
     max-height: 700px;
     overflow-y: scroll;
 }
-
+.cantidad{
+    text-align: center;
+}
 .list-items {
     display: flex;
     justify-content: center;
@@ -43,6 +45,9 @@
     margin-top: 10px;
 }
 
+input{
+    box-sizing: border-box;
+}
 .card {
     width: 19rem;
 }
@@ -51,10 +56,18 @@
     margin-top: 5px;
 }
 .contenedorFiltros{
-    height: 45px;
+    height: 100px;
     width: 100%;
 }
+.contenedorFiltro{
+    margin: 10px;
+    text-align: left !important;
+}
 
+.card-text{
+    text-align: center;
+    margin-left:20px; 
+}
 @media(max-width:320px) {
     .card {
         width: 13rem;

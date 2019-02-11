@@ -8,6 +8,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { SidebarModule } from 'ng-sidebar';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     SidebarModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

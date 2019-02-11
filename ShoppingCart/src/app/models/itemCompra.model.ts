@@ -5,4 +5,6 @@ export class ItemCompra {
     sublevel_id: string;
     name: string;
     id: string;
+    CantidadCompra:number;
+    PrecioTotal:number;
 }

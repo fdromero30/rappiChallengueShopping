@@ -1,3 +1,125 @@
-<p>
-  carrito works!
-</p>
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div class="row contenedorFiltros">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <div class="col-lg-3 col-md-12 col-sm-3 col-xs-4">
+                <div class="contenedorFiltro">
+                    <div class="row">
+                        <div class="col">
+                            <label>Cantidad</label>
+                            <input type="number" class="form-control" placeholder="Digite la cantidad" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 col-sm-3 col-xs-4">
+                <div class="contenedorFiltro">
+                    <label>Disponible</label>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="radio" name="gender" value="male"> Si<br>
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="radio" name="gender" value="female"> No<br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-7 col-sm-5 col-xs-4" style="margin:0px; padding: 0%">
+                <div class="contenedorFiltro">
+                    <label>Precio</label>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <input class="form-control" placeholder="Desde" type="number" />
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <input class="form-control" placeholder="Hasta" type="number" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin:0px; padding: 0%">
+                    <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 botonFiltro">
+                        <button class="btn btn-primary btn-sm btn-block">Buscar</button>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6 botonFiltro">
+                        <button class="btn btn-primary btn-sm btn-block"(click)="cleanFiltros()">Limpiar</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row contenedorProductos">
+        <div class="list-items">
+            <div class="list-item" *ngFor="let item of productos ">
+                <div class="card">
+                    <div class="col-12 tituloItem">
+                        <label class="card-title">{{item.name |uppercase}}</label>
+                    </div>
+                    <img class="card-img-top" src="../../../assets/icono.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="col-12">
+
+
+                            <div class="col-12">
+                                <label class="card-text">{{item.price}}</label>
+                                <input id="{{item.id}}" type="number" min="1" class="form-control cantidad"
+                                    placeholder="1" max="{{item.quantity}}" [(ngModel)]="item.CantidadCompra" />
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary btn-block btn-sm"
+                                (click)="anadirItem(item,item.CantidadCompra)">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-lg-3 col-md-3 col=sm-12 col-xs-12 contenedorResumenCarrito">
+    <div class="tituloCarrito">
+        <label class="center"><span class="glyphicon glyphicon-shopping-cart"></span>CARRITO DE COMPRA</label>
+    </div>
+    <div class="itemsCarrito">
+        <div class="items">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor='let item of listaItemsCarrito'>
+                    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">
+                        <label>
+                            Producto:
+                            {{item.name}}
+                        </label>
+                        <br>
+                        <label>
+                            Precio:
+                            {{item.PrecioTotal}}
+                        </label>
+                        <br>
+                        <label>
+                            Cantidad:
+                            {{item.CantidadCompra}}
+                        </label>
+                    </div>
+                    <div class="col-xs-1 col-md-1 col-sm-1 col-lg-1">
+                        <button class="btn btn-outline-danger " (click)="eliminarItem(item)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+                </li>
+            </ul>       
+        </div>
+        <div class="col-12">
+                <label>Total: ${{Total}}</label>
+                <br>
+                <button class="btn btn-danger btn-block" (click)="finalizarCompra()">Finalizar Compra</button>
+        </div>
+     
+    </div>
+
+</div>

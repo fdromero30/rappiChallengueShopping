@@ -1,11 +1,24 @@
-<p>
-  inicio works!
-
-</p>
-
-<app-menu></app-menu>
-
-<app-carrito>
-  
-</app-carrito>
-
+<div class="navbarSide">
+    <div class="col-1 col-lg-1 col-md-1 col-sm-1 col-xs-1 contenedor-boton" >
+      <button type="button" class="btn btn-outline-light btn-sm" (click)="accionMenu()">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </button>            
+    </div>
+    <div>
+        <label class="titulo-navbar">          
+            TIENDA EL BARATON
+        </label>
+    </div> 
+</div>
+<div class="containerSide">
+    <div class="col-lg-12 col-md-12 colsm-12 col-xs-12 contTable">
+        <div class="row contTable">
+          <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5 contenedorMenu ">
+            <app-menu [estadoMenu]='estadoMenu'></app-menu>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 contenedorCarrito">
+            <app-carrito></app-carrito>
+          </div>
+        </div>
+    
+</div>

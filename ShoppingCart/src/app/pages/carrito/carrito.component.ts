@@ -14,6 +14,10 @@ export class CarritoComponent implements OnInit {
   public listaItemsCarrito: ItemCompra[];
   public productos: any;
   public Total: number = 0.00;
+  public precioDesde:any;
+  public precioHasta:any;
+  public disponible:boolean;
+  public cantidad:any;
 
   constructor(public service: DataService) {
     this.listaItemsCarrito = JSON.parse(localStorage.getItem('carrito'));
@@ -103,5 +107,9 @@ export class CarritoComponent implements OnInit {
    this.listaItemsCarrito=[];
    this.Total=0.00;
     localStorage.setItem("carrito", null); 
+  }
+
+  cleanFiltros(){
+  
   }
 }

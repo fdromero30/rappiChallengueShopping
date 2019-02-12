@@ -7,10 +7,11 @@
 }
 
 .contenedorProductos {
-    max-height: 700px;
+    max-height: 900px;
     overflow-y: scroll;
     padding: unset;
-    
+    margin-left: -50px;
+    margin-top: 1px;
 }
 
 .tituloCarrito {
@@ -25,12 +26,14 @@
 }
 
 .items {
-    max-height: 700px;
+    height: 600px;
     overflow-y: scroll;
 }
-.cantidad{
+
+.cantidad {
     text-align: center;
 }
+
 .list-items {
     display: flex;
     justify-content: center;
@@ -45,43 +48,42 @@
     margin-top: 10px;
 }
 
-input{
+input {
     box-sizing: border-box;
 }
+
 .card {
     width: 19rem;
 }
-.tituloItem{
+
+.tituloItem {
     text-align: center;
     margin-top: 5px;
 }
-.contenedorFiltros{
-    height: 100px;
+
+.contenedorFiltros {
+    height: 30%;
     width: 100%;
 }
-.contenedorFiltro{
+
+.contenedorFiltro {
     margin: 10px;
     text-align: left !important;
+    padding: 0px;
+    margin: 0px;
 }
 
-.card-text{
+.botonFiltro {
+    margin: 0px;
+    padding: 0%
+}
+
+.card-text {
     text-align: center;
-    margin-left:20px; 
-}
-@media(max-width:320px) {
-    .card {
-        width: 13rem;
-    }
-    .card-title {
-        font-size: 10px;
-    }
-    .card-text {
-        font-size: 10px;
-    }
-    .tituloItem{font-size: 10px}
+    margin-left: 20px;
 }
 
-@media(max-width:480px)and(min-width:381px) {
+@media(max-width:680px){
     .card {
         width: 13rem;
     }
@@ -91,5 +93,68 @@ input{
     .card-text {
         font-size: 10px;
     }
-    .tituloItem{font-size: 10px}
+    .tituloItem {
+        font-size: 10px
+    }
+    .contenedorFiltros {
+        margin-top: 2px;
+        height: 80px;
+        width: 110%;
+    }
+    .contenedorFiltro {
+        height: 10%;
+        font-size: 8px !important;
+    }
+    .btn-sm {
+        font-size: 10px;
+        margin-top: 0px;
+    }
+    label {
+        font-size: 10px;
+    }
+    .items {
+        height: 150px;
+        overflow-y: scroll;
+    }
+    .btn {
+        height: 20px;
+        font-size: 10px;
+    }
+    .form-control {
+        font-size: 8px;
+        height: 20px;
+    }
+    button {
+        height: 20px;
+        margin-top: 1px;
+    }
+    .botonFiltro {
+        margin-top: 3px;
+        padding: 0%;
+    }
+    .contenedorProductos {
+        max-height: 300px;
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+}
+
+@media(max-width:380px){
+    .items{
+        height: 80px;
+    }
+}
+@media(max-width:320px){
+    .items{
+        height: 80px;
+    }
+    .contenedorProductos{
+        height: 200px;
+    }
+}
+
+@media(max-height:820px){
+    .contenedorResumenCarrito{
+        height: 300px;
+    }
 }

@@ -87,17 +87,20 @@
                 <li class="list-group-item" *ngFor='let item of listaItemsCarrito'>
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <label>
+                            Producto:
                             {{item.name}}
                         </label>
                         <label>
-                            {{item.price}}
+                            Precio:
+                            {{item.PrecioTotal}}
                         </label>
                         <label>
-                            {{item.quantity}}
+                            Cantidad:
+                            {{item.CantidadCompra}}
                         </label>
                     </div>
                     <div class="col-1" style="position:float">
-                        <button class="btn btn-outline-danger ">
+                        <button class="btn btn-outline-danger " (click)="eliminarItem(item)">
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
                     </div>
@@ -106,9 +109,9 @@
         </div>
         <hr>
         <div class="col-12">
-            <label>Total: {{Total}}$</label>
+            <label>Total: ${{Total}}</label>
             <br>
-            <button class="btn btn-danger btn-lg btn-block">Finalizar Compra</button>
+            <button class="btn btn-danger btn-lg btn-block" (click)="finalizarCompra()">Finalizar Compra</button>
         </div>
     </div>
 

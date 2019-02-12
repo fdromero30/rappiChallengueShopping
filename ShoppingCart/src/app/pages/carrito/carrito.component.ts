@@ -16,7 +16,12 @@ export class CarritoComponent implements OnInit {
   public Total: number = 0.00;
 
   constructor(public service: DataService) {
-    this.listaItemsCarrito = [];
+    this.listaItemsCarrito = JSON.parse(localStorage.getItem('carrito'));
+    if(this.listaItemsCarrito==null){
+      this.listaItemsCarrito=[];
+    }else{
+      this.calcularTotal();
+    }
     this.productos = [];
   }
 
@@ -29,6 +34,8 @@ export class CarritoComponent implements OnInit {
       let products = data.products;
 
       products.forEach(element => {
+
+        element.CantidadCompra = 1;
         let temp: any = element;
         this.productos.push(temp);
       });
@@ -39,46 +46,15 @@ export class CarritoComponent implements OnInit {
 
   }
 
-  anadirItem(item:ItemCompra, cantidad) {
+  anadirItem(item: ItemCompra, cantidad) {
 
-    console.log(item, cantidad);
+    var temp = item.price.replace("$", "").replace(",", "");
+    var price = parseFloat(temp);
+    item.PrecioTotal = price*cantidad;
 
+    this.listaItemsCarrito.push(item);
 
-    if (this.listaItemsCarrito.length > 0) {
-      this.listaItemsCarrito.forEach(element => {
-
-        if (element.id == item.id) {
-
-          var x = this.listaItemsCarrito.indexOf(element);
-          this.listaItemsCarrito.splice(x);
-          this.listaItemsCarrito.push(item);
-        }
-
-      });
-
-      this.listaItemsCarrito.forEach(element => {
-        var priceTemp = element.CantidadCompra * (parseInt(element.price));
-
-        this.Total = this.Total + priceTemp;
-      });
-
-    } else {
-
-      var temp = item.price.replace("$", "").replace(",", "");
-      var price = parseFloat(temp);
-
-      var priceItemFinal = price * parseInt(cantidad);
-
-      item.PrecioTotal = priceItemFinal;
-
-      this.listaItemsCarrito.push(item);
-      this.listaItemsCarrito.forEach(element => {
-        var priceTemp = element.CantidadCompra * (parseInt(element.price));
-
-        this.Total = this.Total + priceTemp;
-      });
-
-    }
+    this.calcularTotal();
   }
   onKey(event: any, item) {
 
@@ -93,8 +69,39 @@ export class CarritoComponent implements OnInit {
     console.log(item.price, price);
   }
 
-
   numberWithComma(priceItemFinal) {
     return priceItemFinal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  eliminarItem(item: any) {
+
+    if (this.listaItemsCarrito.length > 0) {
+      this.listaItemsCarrito.forEach(element => {
+
+        if (element.id == item.id) {
+
+          var x = this.listaItemsCarrito.indexOf(element);
+          this.listaItemsCarrito.splice(x,1);
+        }
+
+      });
+    }
+
+    this.calcularTotal();
+  }
+  calcularTotal(){
+
+    this.Total=0;
+    this.listaItemsCarrito.forEach(element => {
+      var priceTemp = element.PrecioTotal;
+      this.Total = this.Total + priceTemp;
+    });
+
+    localStorage.setItem("carrito", JSON.stringify(this.listaItemsCarrito)); 
+  }
+  finalizarCompra(){
+   this.listaItemsCarrito=[];
+   this.Total=0.00;
+    localStorage.setItem("carrito", null); 
   }
 }
